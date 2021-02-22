@@ -1,0 +1,42 @@
+pipeline {
+    tools { 
+            maven 'maven_3.6.2' 
+    }
+    agent any
+  
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checkout the source code'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: false, timeout: 5]], userRemoteConfigs: [[url: 'https://github.com/akkizz/devops.git']]])
+            }
+        }
+        stage('Quality Check') {
+            steps {
+                echo 'QA verified'
+            }
+        }
+        stage('Security Check') {
+            steps {
+                echo 'All security checks done'
+            }
+        }
+        
+        stage('Build Push App') {
+            steps {
+               sh "mvn clean install"     
+            }
+        }    
+        
+         stage('Deploy') {
+            steps {
+                echo 'Deployment done'
+            }
+        }
+         stage('Post Deployment Check') {
+            steps {
+                echo 'All deployment check done'
+            }
+        }
+    }
+}
