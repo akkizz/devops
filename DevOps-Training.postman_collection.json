@@ -32,7 +32,7 @@
 		{
 			"name": "Add Student",
 			"request": {
-				"url": "http://10.7.151.59.fisdev.local:8083/register/student",
+				"url": "http://10.7.151.59:8083/register/student",
 				"method": "POST",
 				"header": [
 					{
