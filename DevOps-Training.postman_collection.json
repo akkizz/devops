@@ -1,93 +1,51 @@
 {
+	"variables": [],
 	"info": {
-		"_postman_id": "00a99dde-9d4b-492a-a5a5-cf2fa055f5e6",
-		"name": "DevOps Training",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"name": "Student_API",
+		"_postman_id": "0dbbae43-76c5-c5fb-5f94-c9d9d8c2c34b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Post Request",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"name\" : \"Manoj\",\r\n\"age\" : \"23\",\r\n\"registrationNumber\": \"123345\" }"
-				},
-				"url": {
-					"raw": "http://localhost:8083/register/student",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8083",
-					"path": [
-						"register",
-						"student"
-					]
+			"name": "Get Students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Request",
+			],
 			"request": {
+				"url": "http://vlmaz2021tn2.fisdev.local:8083/student/allstudent",
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:8083/student/allstudent",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8083",
-					"path": [
-						"student",
-						"allstudent"
-					]
-				}
+				"body": {},
+				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "Delete Request",
+			"name": "Add Student",
 			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8083/delete/student/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8083",
-					"path": [
-						"delete",
-						"student",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Put Request",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8083/update/student/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8083",
-					"path": [
-						"update",
-						"student",
-						""
-					]
-				}
+				"url": "http://vlmaz2021tn2.fisdev.local:8083/register/student",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"name\" : \"Akshay\",\n\t\t\"age\" : 26,\n\t\t\"registrationNumber\" : \"123456\"\n}\n"
+				},
+				"description": ""
 			},
 			"response": []
 		}
