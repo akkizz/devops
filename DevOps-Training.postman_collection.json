@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "http://vlmaz2021tn2.fisdev.local:8083/student/allstudent",
+				"url": "http://10.7.151.59:8083/student/allstudent",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -32,7 +32,7 @@
 		{
 			"name": "Add Student",
 			"request": {
-				"url": "http://vlmaz2021tn2.fisdev.local:8083/register/student",
+				"url": "http://10.7.151.59.fisdev.local:8083/register/student",
 				"method": "POST",
 				"header": [
 					{
