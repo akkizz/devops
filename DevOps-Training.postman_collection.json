@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "http://10.7.199.12:8083/student/allstudent",
+				"url": "http://127.0.0.1:8083/student/allstudent",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -32,7 +32,7 @@
 		{
 			"name": "Add Student",
 			"request": {
-				"url": "http://10.7.151.59:8083/register/student",
+				"url": "http://127.0.0.1:8083/register/student",
 				"method": "POST",
 				"header": [
 					{
