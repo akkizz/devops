@@ -11,16 +11,21 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: false, timeout: 5]], userRemoteConfigs: [[url: 'https://github.com/akkizz/devops.git']]])
             }
         }
-        stage('Quality Check') {
-            steps {
-                echo 'QA verified'
-            }
-        }
-        stage('Security Check') {
-            steps {
-                dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWASP-Dependency-Check'
-                echo 'All security checks done'
-            }
+        
+        stage ('Quality & Security'){
+			parallel{
+				stage('Quality Check') {
+					steps {
+						echo 'QA verified'
+					}
+				}
+				stage('Security Check') {
+					steps {
+						dependencyCheck additionalArguments: '--scan=. --format=HTML', odcInstallation: 'OWASP-Dependency-Check'
+						echo 'All security checks done'
+					}
+				}
+			}
         }
         
         stage('Build Push App') {
