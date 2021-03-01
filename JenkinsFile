@@ -54,5 +54,12 @@ pipeline {
                 echo 'All deployment check done'
             }
         }
+	
+	stage('Email Notification') {
+	   steps {
+	   	emailext body: 'Email from build job', mimeType: 'text/html', subject: 'Build Job', to: 'akshay.salunke@fisglobal.com'
+	   	echo 'Email Notification.'
+	   }
+	}
     }
 }
